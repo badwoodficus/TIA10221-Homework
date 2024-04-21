@@ -1,6 +1,6 @@
 package homework1;
 
-public class question03withsexagesimal {
+public class Question03withsexagesimal {
 //	請由程式算出256559秒為多少天、多少小時、多少分與多少秒
 //	如果使用六十進位制寫
 	public static void main(String[] args) {

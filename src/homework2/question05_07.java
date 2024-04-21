@@ -1,6 +1,6 @@
 package homework2;
 
-public class question05_07 {
+public class Question05_07 {
 
 	public static void main(String[] args) {
 //		阿文很熱衷大樂透 (1 ～ 49)，但他不喜歡有4的數字，不論是個位數或是十位數。請設計一隻程式，
