@@ -15,7 +15,7 @@ public class Question05_withoutMathPow {
 		while (yearCount < years) {
 			yearlySavings *= 1.02;
 			totalSavings = yearlySavings;
-			System.out.println("此時的本利合為" + totalSavings);
+//			System.out.println("此時的本利合為" + totalSavings);
 			yearCount++;
 		}
 
