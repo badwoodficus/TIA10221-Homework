@@ -37,7 +37,7 @@ public class Q2_GuessNum {
 				}
 
 			} catch (InputMismatchException ex) {
-				System.out.printf("請不要輸入數字以外的文字!重啟遊戲:",console.next());
+				System.out.printf("請不要輸入數字以外的文字!再次輸入一個整數:",console.next());
 			}
 
 		}
