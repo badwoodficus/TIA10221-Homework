@@ -24,87 +24,81 @@ import java.util.Scanner;
 
 public class DateCount {
 	private static int count = 0;
+	private String evan = "evanMonth";
+	private String odd = "oddMonth";
 
-	private static boolean form = false;
+	public static boolean form(int yy , int mm , int dd) {
+		if(yy < 1 || mm<1 || mm>12 || dd < 1 ) {
+			return false;
+		}
+		if(mm == 1|| mm== 3|| mm==5 ||mm==7||mm==8||mm==10||mm==12) {
+			return dd <=31;
+		}else if(mm==4||mm==6||mm==9||mm==11) {
+			return dd <=30;
+		}else if(mm==2) {
+			if(isLeapYear(yy)) {
+				return dd<=29;
+			}else {
+				return dd<=28;
+			}
+		}
+		return dd >0;
+	}
+	
+	public static boolean isLeapYear(int yy) {
+        return (yy % 4 == 0 && yy % 100 != 0) || (yy % 400 == 0);
+    }
 
 	public DateCount() {
 	};
 
-	public int dayCount(int yy, int mm, int dd) {
-		int year = yy % 4;
-		int month = mm - 1;
+	public static int dayCount(int yy, int mm, int dd) {
+		int month = 0;
 		int day = dd;
 
-		while (month != 0) {
-
-			if (dd > 32) {
-				System.out.println("輸入格式錯誤!");
-				break;
-			} else if (mm == 2 && dd > 29) {
-				System.out.println("輸入格式錯誤!");
-				break;
-			}
+		while (month < mm ) {
 
 			if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
-				if (0 < dd && dd < 32) {
-					count += 31;
-					form = true;
-				} else {
-					System.out.println("輸入格式錯誤!");
-					form = false;
-					break;
-				}
-				month--;
+				count += 31;
+				month++;
+				continue;
 			} else if (month == 4 || month == 6 || month == 9 || month == 11) {
-				if (0 < dd && dd < 31) {
-					count += 30;
-					form = true;
-				} else {
-					System.out.println("輸入格式錯誤!");
-					form = false;
-					break;
-				}
-				month--;
+				count += 30;
+				month++;
+				continue;
 			} else if (month == 2) {
-				if (dd > 0 && dd <= 29) {
-					if (yy % 4 == 0) {
-						count += 29;
-					} else {
-						count += 28;
-					}
+				if (isLeapYear(yy)){
+					count +=29;
+				}else {
+					count +=28;
 				}
-				month--;
-			} else {
-				System.out.println("輸入格式錯誤");
-				form = false;
-				break;
+				month++;
+				continue;
+			}else {
+				month++;
 			}
 		}
-		if (form == true) {
-			count += dd;
-		}
+		count += dd;
+		
 		return count;
 	}
 
 	public static void main(String[] args) {
-		System.out.println("請輸入年/月/日:");
+		System.out.println("請輸入年:");
 		Scanner sc = new Scanner(System.in);
-		int[] time = new int[3];
-		for (int i = 0; i < 3; i++) {
-			time[i] = sc.nextInt();
-		}
-		System.out.println("輸入的時間為:" + Arrays.toString(time));
-		DateCount date = new DateCount();
-		int yy = time[0];
-		int mm = time[1];
-		int dd = time[2];
+		int yy = sc.nextInt();
+		System.out.println("請輸入月:");
+		int mm = sc.nextInt();
+		System.out.println("請輸入日:");
+		int dd = sc.nextInt();
+		System.out.println("輸入的時間為:" + yy+"年"+mm+"月"+dd+"日");
 
-		date.dayCount(yy, mm, dd);
 
-		if (form == true) {
-			System.out.println(Arrays.toString(time) + "是該年第: " + count + "天");
+		if (form(yy,mm,dd)) {
+			int count = dayCount(yy,mm,dd);
+			System.out.println("是該年第: " + count  + "天");
 		} else {
-			System.out.println("無法運算!");
+			System.out.println("格式錯誤，無法運算!");
 		}
 
 		sc.close();
