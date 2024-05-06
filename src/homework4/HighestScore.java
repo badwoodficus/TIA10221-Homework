@@ -21,6 +21,7 @@ public class HighestScore {
 		int no6 = 0;
 		int no7 = 0;
 		int no8 = 0;
+		
 		for (int i = 0; i < score.length; i++) {
 			tmp =0;
 			for (int j = 0; j < score[i].length; j++) {
