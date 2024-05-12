@@ -15,7 +15,7 @@ public class RandAvg {
 			ra[i]=(int)(Math.random()*100+1);
 			System.out.print(ra[i]+" ");
 			sum += ra[i];
-		}System.out.print("十數的平均為: "+ (sum/10));
+		}System.out.print("十數的平均為: "+ (sum/10d));
 	}
 	
 	public static void main(String[] args) {
