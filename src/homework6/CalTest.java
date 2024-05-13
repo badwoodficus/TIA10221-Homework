@@ -15,11 +15,12 @@ public class CalTest {
 //        return Integer.parseInt(input);
 //    }
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+		
 		
 		Calculator cal = new Calculator();
 		while (true) {  //讓程式在完成計算前可以一直輸入直到符合格式為止
 			try {
+				Scanner sc = new Scanner(System.in); //把Scanner放在try裡面就解決了
 				System.out.println("請輸入x的值:");
 				cal.setX(sc.nextInt());
 				System.out.println("請輸入y的值:");
@@ -31,13 +32,13 @@ public class CalTest {
 			catch(InputMismatchException e){
 				System.out.println("請輸入正確格式!");
 //				應該是有方法停止無限迴圈並且不要讓下面那一行出現但我還沒想到先放著
-				System.out.println("請隨意輸入重啟程式:"+sc.next());
+//				System.out.println("請隨意輸入重啟程式:"+sc.next());
 			}
 			catch (CalException e) {
 				// TODO Auto-generated catch block
 				System.out.println(e.getMessage());
 //				應該是有方法停止無限迴圈並且不要讓下面那一行出現但我還沒想到先放著
-				System.out.println("請隨意輸入重啟程式:"+sc.next());
+//				System.out.println("請隨意輸入重啟程式:"+sc.next());
 			}
 		}
 		
