@@ -1,11 +1,6 @@
 package homework4;
 import java.util.Scanner;
-/*
- * 這個是Copilot寫出來的
- * 可以順利執行
- * 我大破房ㄚㄚㄚㄚㄚㄚㄚ
- * 我的三小時ㄚㄚㄚ ㄚㄚ
- */
+
 public class DayOfYearCalculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
